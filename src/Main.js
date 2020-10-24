@@ -1,27 +1,61 @@
 import axios from 'axios';
-import React from 'react';
-import {SafeAreaView, View, Text, Button} from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, View, Text, Button, FlatList } from 'react-native';
 
 const Main = (props) => {
-  const fetchData_Then = () => {
-    let myData = [];
-    console.log('Starting Fetch...');
-    axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
-      console.log(response);
-      myData = response.data;
-    });
-    console.log(myData);
-    console.log('end fetch...');
-  };
+    const [userData, setUserData] = useState([]);
 
-  return (
-    <SafeAreaView>
-      <View>
-        <Text>Hello</Text>
-        <Button title="fetch data" onPress={fetchData_Then}></Button>
-      </View>
-    </SafeAreaView>
-  );
-};
+    const fetchData_Then = () => {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(({ data }) => {
+                setUserData(data);
+            })
+    }
+
+    const fetchData_Await = async () => {
+        const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
+        setUserData(data);
+    }
+
+
+    function promiseFunction(number) {
+        return new Promise((resolve, reject) => {
+            if (number > 5) {
+                resolve("Sayı beşten büyük!");
+            }
+            else {
+                reject("Sayı beşten küçük..");
+            }
+        })
+    }
+
+    const checkNumber = () => {
+        promiseFunction(1)
+            .then(response => {
+                console.log("response: ");
+                console.log(response);
+            })
+            .catch(error => {
+                console.log("error: ");
+                console.log(error);
+            })
+    }
+
+    return (
+        <SafeAreaView>
+            <View>
+                <Button title="Fetch Data With Then " onPress={fetchData_Then} />
+                <Button title="Fetch Data With Await " onPress={fetchData_Await} />
+                <Button title="Number" onPress={checkNumber} />
+
+                <FlatList
+                    data={userData}
+                    renderItem={({ item }) => <Text>{item.name}</Text>}
+                />
+
+            </View>
+        </SafeAreaView>
+    );
+}
 
 export default Main;
