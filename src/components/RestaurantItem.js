@@ -1,11 +1,13 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const RestaurantItem = ({item}) => {
+const RestaurantItem = ({item, onAddFavourite}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onAddFavourite}>
+      <Icon name={"fire"} size={20} color={"red"} />
       <Text style={styles.text}>{item.name}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -16,9 +18,12 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
   },
   text: {
     fontWeight: '200',
+    marginLeft: 10,
   },
 });
 
