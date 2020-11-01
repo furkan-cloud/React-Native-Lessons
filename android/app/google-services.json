@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "426311794940",
+    "firebase_url": "https://clarusway-f9783.firebaseio.com",
+    "project_id": "clarusway-f9783",
+    "storage_bucket": "clarusway-f9783.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426311794940:android:ca1d4ddfccf78f617f1779",
+        "android_client_info": {
+          "package_name": "com.reactnativelessons"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426311794940-7npd3nelhtkcrgrfppg8trko4eacoodr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxOl4LxrIOZW7eJ3HepJoHMgFt14OwjU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426311794940-7npd3nelhtkcrgrfppg8trko4eacoodr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
